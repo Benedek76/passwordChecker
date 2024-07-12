@@ -1,26 +1,13 @@
-This is legitimately going to be the most secure way
-for you to check if your password has ever been hacked.
+For password hashing, we use SHA1 (e.g., hash-256 checks more slowly), which the API also uses.
 
-https://haveibeenpwned.com
+The technology used to submit the actual password is called K-anonymity. It is used by companies like Google, Netflix, Amazon, etc.
 
-Install the Requests modul:
-pip install requests
+In this process, the API takes the first 5 characters of the hashed password and checks it.
+
+If running `python3 checkmypass.py [password]` in the terminal returns 200, then it's good.
+
+The hash algorithm is globally known as IDEMPOTENT.
+
+https://docs.python.org/3/library/hashlib.html
 
 
-For psw hash we use SHA1, what the api use
-
-A technologia neve, amivel bekuldjuk az igazi jelszot: K anonymity
-Ezt hasznalja google netflix, amazon, netflix...
-Ennek soran az api kiveszi a hash jelszo elso 5 karakteret es azt ellenorzi
-Ha a terminalban a python3 checkmypass.py [200]-ad vissza, akkor jo.
-A hash algoritmust globalisan IDEMPOTENT-nek nevezzuk.
-
-A hash-256 lassan ellenorizi
-
-# https://docs.python.org/3/library/hashlib.html
-
-Akkor szuper szuper biztonsagos ez a projekt, ha nem commad line-ban irjuk be a jeelszot tesztelesre
-mert az is hekkelheto, mert a gep az elment, hanem egy text fajlbol olvassuk be. Lasd az elozo projekt.
-
-Running in the terminal:
-python3 checkmypass.py hello bye jdvksadjksjsfks
